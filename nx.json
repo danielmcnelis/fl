@@ -29,6 +29,12 @@
   "projects": {
     "api": {
       "tags": []
+    },
+    "ids": {
+      "tags": []
+    },
+    "server": {
+      "tags": []
     }
   }
 }

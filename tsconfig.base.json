@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@fl/ids": ["libs/ids/src/index.ts"],
+      "@fl/server": ["libs/server/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
