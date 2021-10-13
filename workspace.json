@@ -49,6 +49,116 @@
 						"jestConfig": "apps/api/jest.config.js",
 						"passWithNoTests": true
 					}
+				},
+				"pg-migration-list": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"cwd": "apps/api",
+						"commands": [
+							{
+								"command": "TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' ../../node_modules/knex/bin/cli.js migrate:list --env default"
+							}
+						]
+					}
+				},
+				"pg-migration-make": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"cwd": "apps/api",
+						"commands": [
+							{
+								"command": "TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' ../../node_modules/knex/bin/cli.js migrate:make {args.name} -x ts --env default"
+							}
+						]
+					}
+				},
+				"pg-migration-latest": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"cwd": "apps/api",
+						"commands": [
+							{
+								"command": "TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' ../../node_modules/knex/bin/cli.js migrate:latest  --env default"
+							}
+						]
+					}
+				},
+				"pg-migration-up": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"cwd": "apps/api",
+						"commands": [
+							{
+								"command": "TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' ../../node_modules/knex/bin/cli.js migrate:up  --env default"
+							}
+						]
+					}
+				},
+				"pg-migration-rollback": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"cwd": "apps/api",
+						"commands": [
+							{
+								"command": "TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' ../../node_modules/knex/bin/cli.js migrate:rollback  --env default"
+							}
+						]
+					}
+				},
+				"pg-migration-down": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"cwd": "apps/api",
+						"commands": [
+							{
+								"command": "TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' ../../node_modules/knex/bin/cli.js migrate:down  --env default"
+							}
+						]
+					}
+				},
+				"pg-seed-make": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"cwd": "apps/api",
+						"commands": [
+							{
+								"command": "TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' ../../node_modules/knex/bin/cli.js seed:make {args.name} -x ts --env default"
+							}
+						]
+					}
+				},
+				"pg-seed-dump": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"cwd": "apps/api",
+						"commands": [
+							{
+								"command": "TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' ./pg-seed-dump.ts --table {args.table} "
+							}
+						]
+					}
+				},
+				"pg-seed-run": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"cwd": "apps/api",
+						"commands": [
+							{
+								"command": "TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' ../../node_modules/knex/bin/cli.js seed:run --env default"
+							}
+						]
+					}
+				},
+				"pg-seed-run-specific": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"cwd": "apps/api",
+						"commands": [
+							{
+								"command": "TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' ../../node_modules/knex/bin/cli.js seed:run --specific {args.specific} --env default"
+							}
+						]
+					}
 				}
 			}
 		},
