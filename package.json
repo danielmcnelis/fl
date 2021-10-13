@@ -9,6 +9,7 @@
 	},
 	"private": true,
 	"dependencies": {
+		"base-x": "^3.0.8",
 		"knex": "^0.95.11",
 		"koa": "^2.13.3",
 		"koa-bodyparser": "^4.3.0",

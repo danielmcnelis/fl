@@ -19,6 +19,7 @@
 		"paths": {
 			"@fl/connectors": ["libs/connectors/src/index.ts"],
 			"@fl/context": ["libs/context/src/index.ts"],
+			"@fl/ids": ["libs/ids/src/index.ts"],
 			"@fl/models": ["libs/models/src/index.ts"]
 		}
 	},
