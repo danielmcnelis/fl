@@ -1,5 +1,5 @@
 module.exports = {
-	displayName: 'ids',
+	displayname: 'ids',
 	preset: '../../jest.preset.js',
 	globals: {
 		'ts-jest': {

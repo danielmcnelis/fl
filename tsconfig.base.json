@@ -17,6 +17,7 @@
 		"skipDefaultLibCheck": true,
 		"baseUrl": ".",
 		"paths": {
+			"@fl/config": ["libs/config/src/index.ts"],
 			"@fl/connectors": ["libs/connectors/src/index.ts"],
 			"@fl/context": ["libs/context/src/index.ts"],
 			"@fl/ids": ["libs/ids/src/index.ts"],

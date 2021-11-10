@@ -51,7 +51,7 @@
 					}
 				},
 				"pg-migration-list": {
-					"builder": "@nrwl/workspace:run-commands",
+					"executor": "@nrwl/workspace:run-commands",
 					"options": {
 						"cwd": "apps/api",
 						"commands": [
@@ -62,7 +62,7 @@
 					}
 				},
 				"pg-migration-make": {
-					"builder": "@nrwl/workspace:run-commands",
+					"executor": "@nrwl/workspace:run-commands",
 					"options": {
 						"cwd": "apps/api",
 						"commands": [
@@ -73,7 +73,7 @@
 					}
 				},
 				"pg-migration-latest": {
-					"builder": "@nrwl/workspace:run-commands",
+					"executor": "@nrwl/workspace:run-commands",
 					"options": {
 						"cwd": "apps/api",
 						"commands": [
@@ -84,7 +84,7 @@
 					}
 				},
 				"pg-migration-up": {
-					"builder": "@nrwl/workspace:run-commands",
+					"executor": "@nrwl/workspace:run-commands",
 					"options": {
 						"cwd": "apps/api",
 						"commands": [
@@ -95,7 +95,7 @@
 					}
 				},
 				"pg-migration-rollback": {
-					"builder": "@nrwl/workspace:run-commands",
+					"executor": "@nrwl/workspace:run-commands",
 					"options": {
 						"cwd": "apps/api",
 						"commands": [
@@ -106,7 +106,7 @@
 					}
 				},
 				"pg-migration-down": {
-					"builder": "@nrwl/workspace:run-commands",
+					"executor": "@nrwl/workspace:run-commands",
 					"options": {
 						"cwd": "apps/api",
 						"commands": [
@@ -117,7 +117,7 @@
 					}
 				},
 				"pg-seed-make": {
-					"builder": "@nrwl/workspace:run-commands",
+					"executor": "@nrwl/workspace:run-commands",
 					"options": {
 						"cwd": "apps/api",
 						"commands": [
@@ -128,7 +128,7 @@
 					}
 				},
 				"pg-seed-dump": {
-					"builder": "@nrwl/workspace:run-commands",
+					"executor": "@nrwl/workspace:run-commands",
 					"options": {
 						"cwd": "apps/api",
 						"commands": [
@@ -139,7 +139,7 @@
 					}
 				},
 				"pg-seed-run": {
-					"builder": "@nrwl/workspace:run-commands",
+					"executor": "@nrwl/workspace:run-commands",
 					"options": {
 						"cwd": "apps/api",
 						"commands": [
@@ -150,7 +150,7 @@
 					}
 				},
 				"pg-seed-run-specific": {
-					"builder": "@nrwl/workspace:run-commands",
+					"executor": "@nrwl/workspace:run-commands",
 					"options": {
 						"cwd": "apps/api",
 						"commands": [
@@ -158,6 +158,38 @@
 								"command": "TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' ../../node_modules/knex/bin/cli.js seed:run --specific {args.specific} --env default"
 							}
 						]
+					}
+				},
+				"uclid": {
+					"executor": "@nrwl/workspace:run-commands",
+					"options": {
+						"commands": [
+							{
+								"command": "TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' ts-node --script-mode apps/api/uclid.ts"
+							}
+						]
+					}
+				}
+			}
+		},
+		"config": {
+			"root": "libs/config",
+			"sourceRoot": "libs/config/src",
+			"projectType": "library",
+			"targets": {
+				"lint": {
+					"executor": "@nrwl/linter:eslint",
+					"outputs": ["{options.outputFile}"],
+					"options": {
+						"lintFilePatterns": ["libs/config/**/*.ts"]
+					}
+				},
+				"test": {
+					"executor": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/config"],
+					"options": {
+						"jestConfig": "libs/config/jest.config.js",
+						"passWithNoTests": true
 					}
 				}
 			}

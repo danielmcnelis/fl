@@ -30,6 +30,9 @@
 		"api": {
 			"tags": []
 		},
+		"config": {
+			"tags": []
+		},
 		"connectors": {
 			"tags": []
 		},

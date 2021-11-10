@@ -1,5 +1,5 @@
 module.exports = {
-	displayName: 'connectors',
+	displayname: 'connectors',
 	preset: '../../jest.preset.js',
 	globals: {
 		'ts-jest': {

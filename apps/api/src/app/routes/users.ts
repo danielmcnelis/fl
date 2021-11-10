@@ -1,11 +1,11 @@
 
 import KoaRouter from 'koa-router'
 import { Context as KoaContext, DefaultContext, DefaultState, Middleware } from 'koa'
-import { log, error, players } from '../middleware'
+import { log, error, users } from '../middleware'
 
 const router = new KoaRouter<DefaultState, KoaContext>()
 
-router.get('/players', log(), error(), players())
-router.get('/players/:id', log(), error(), players())
+router.get('/users', log(), error(), users())
+router.get('/users/:id', log(), error(), users())
 
 export default router
