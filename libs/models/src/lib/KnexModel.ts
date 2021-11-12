@@ -1,6 +1,5 @@
-import { Knex } from 'knex'
-import { knex } from './knex'
 import { Model, ModelJSON } from './Model'
+import { Context } from '@fl/context'
 
 export class KnexModel extends Model {
 	protected static tableName: string
@@ -11,15 +10,15 @@ export class KnexModel extends Model {
 		this.tableName = tableName
 	}
 
-	static async findOne(where: ModelJSON, connector: Knex): Promise<ModelJSON> {
-		const rows = await connector.from(this.tableName).where(where).limit(1)
+	static async findOne(where: ModelJSON, context: Context): Promise<ModelJSON> {
+		const rows = await context.knexConnector.from(this.tableName).where(where).limit(1)
 		return rows.map((r) => ({
 			...r
 		}))[0]
 	}
 
-	static async findMany(where: ModelJSON, connector: Knex): Promise<ModelJSON[]> {
-		const rows = await connector.from(this.tableName).where(where)
+	static async findMany(where: ModelJSON, context: Context): Promise<ModelJSON[]> {
+		const rows = await context.knexConnector.from(this.tableName).where(where)
 		return rows.map((r) => ({
 			...r
 		}))
