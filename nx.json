@@ -42,6 +42,9 @@
 		"ids": {
 			"tags": []
 		},
+		"middleware": {
+			"tags": []
+		},
 		"models": {
 			"tags": []
 		}

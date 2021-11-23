@@ -1,10 +1,10 @@
 import Koa from 'koa'
 import { config } from './config'
-import { health, users } from './routes'
+import { health, register, users } from './routes'
 
 const app = new Koa()
 
-const routes = { health, users }
+const routes = { health, register, users }
 Object.entries(routes).forEach(([path, route]) => {
 	app.use(route.routes()).use(
 		route.allowedMethods({
@@ -28,11 +28,8 @@ Object.entries(routes).forEach(([path, route]) => {
 // app.use(users.allowedMethods())
 
 const databaseUrl = config('database.url')
-console.log('databaseUrl', databaseUrl)
 const poolMin = config('database.pool.min')
-console.log('poolMin', poolMin)
 const poolMax = config('database.pool.max')
-console.log('poolMax', poolMax)
 
 const port = config('service.port')
 console.log('port', port)

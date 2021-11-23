@@ -1,4 +1,4 @@
-
 import health from './health'
 import users from './users'
-export { health, users }
+import register from './register'
+export { health, register, users }
